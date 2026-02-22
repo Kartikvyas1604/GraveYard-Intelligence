@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useChat } from "@ai-sdk/react";
+import { useChat } from "ai/react";
 import { Send, Bot, User } from "lucide-react";
 
 export default function TradingTutor() {

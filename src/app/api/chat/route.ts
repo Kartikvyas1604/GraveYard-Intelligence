@@ -6,7 +6,7 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const result = streamText({
+  const result = await streamText({
     model: anthropic("claude-3-5-sonnet-20240620"),
     system: `You are GYI Tutor, the trading assistant for GraveYard Intelligence, a Solana liquidity analytics platform. 
 Your job is to teach complete beginners how to understand dead pool arbitrage, read health scores, use the profit simulator, and make their first trade safely. 
