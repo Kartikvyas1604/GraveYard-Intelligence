@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useChat } from "ai/react";
 import { Send, Bot, User } from "lucide-react";
 
@@ -34,7 +34,7 @@ export default function TradingTutor() {
     <div className="flex flex-col h-full bg-carbon animate-fade-up" style={{ animationDelay: "0.48s" }}>
       <div className="p-4 border-b border-wire flex items-center gap-3">
         <div className="w-2 h-2 rounded-full bg-ice animate-pulse glow-ice"></div>
-        <h2 className="font-data text-ice text-sm tracking-[2px]">// TRADING TUTOR</h2>
+        <h2 className="font-data text-ice text-sm tracking-[2px]">{'//'} TRADING TUTOR</h2>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">

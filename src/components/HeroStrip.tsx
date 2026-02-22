@@ -6,7 +6,8 @@ export default function HeroStrip() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const stats = [
@@ -30,7 +31,7 @@ export default function HeroStrip() {
               {mounted ? (
                 <span 
                   style={{ 
-                    // @ts-ignore
+                    // @ts-expect-error Custom CSS property
                     "--num": stat.value 
                   }} 
                   className="animate-[counter_2s_ease-out_forwards]"

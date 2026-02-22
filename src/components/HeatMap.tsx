@@ -4,15 +4,24 @@ import { useEffect, useState } from "react";
 
 export default function HeatMap() {
   const [mounted, setMounted] = useState(false);
+  const [intensities, setIntensities] = useState<number[]>([]);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+      const newIntensities = [];
+      for (let i = 0; i < 120; i++) {
+        newIntensities.push(Math.random());
+      }
+      setIntensities(newIntensities);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const generateCells = () => {
     const cells = [];
     for (let i = 0; i < 120; i++) {
-      const intensity = Math.random();
+      const intensity = intensities[i] || 0;
       let colorClass = "bg-void border-wire";
       if (intensity > 0.9) colorClass = "bg-blood border-blood";
       else if (intensity > 0.7) colorClass = "bg-amber border-amber";

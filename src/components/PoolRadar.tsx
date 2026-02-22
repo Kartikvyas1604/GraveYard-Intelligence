@@ -23,12 +23,12 @@ export default function PoolRadar({ onSelectPool }: { onSelectPool: (pool: Pool)
   return (
     <div className="flex flex-col h-full border-r border-wire bg-carbon animate-fade-up" style={{ animationDelay: "0.24s" }}>
       <div className="p-4 border-b border-wire flex items-center justify-between">
-        <h2 className="font-data text-acid text-sm tracking-[2px]">// DEAD POOL RADAR</h2>
+        <h2 className="font-data text-acid text-sm tracking-[2px]">{'//'} DEAD POOL RADAR</h2>
         <div className="flex gap-2">
-          {["ALL", "DEAD", "DYING", "HAS PROFIT"].map(f => (
+          {(["ALL", "DEAD", "DYING", "HAS PROFIT"] as const).map(f => (
             <button
               key={f}
-              onClick={() => setFilter(f as any)}
+              onClick={() => setFilter(f)}
               className={`font-data text-[9px] px-2 py-1 border ${filter === f ? 'border-acid text-acid bg-acid/10' : 'border-wire text-ghost hover:text-bone'} transition-colors`}
             >
               {f}

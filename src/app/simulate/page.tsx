@@ -71,7 +71,7 @@ export default function SimulatePage() {
             <div className="flex flex-col gap-6">
               <div className={`p-6 border ${isProfitable ? 'border-acid bg-acid/5' : 'border-blood bg-blood/5'}`}>
                 <p className="font-editorial text-lg leading-relaxed">
-                  If you trade <span className="font-data font-bold">${amount.toLocaleString()}</span> on this pool, you could make <span className={`font-data font-bold ${isProfitable ? 'text-acid' : 'text-blood'}`}>${netProfit.toFixed(2)}</span> after all fees. But there's a 40% chance bots beat you.
+                  If you trade <span className="font-data font-bold">${amount.toLocaleString()}</span> on this pool, you could make <span className={`font-data font-bold ${isProfitable ? 'text-acid' : 'text-blood'}`}>${netProfit.toFixed(2)}</span> after all fees. But there&apos;s a 40% chance bots beat you.
                 </p>
               </div>
               
@@ -80,7 +80,7 @@ export default function SimulatePage() {
                   <Bot className="w-4 h-4" />
                 </div>
                 <p className="font-editorial text-[15px] text-bone leading-relaxed">
-                  "Think of slippage like spilling water while running with a bucket. The more money you trade (the bigger the bucket), the more you might spill before reaching the other side. Try lowering your trade size to see how it affects your profit!"
+                  &quot;Think of slippage like spilling water while running with a bucket. The more money you trade (the bigger the bucket), the more you might spill before reaching the other side. Try lowering your trade size to see how it affects your profit!&quot;
                 </p>
               </div>
             </div>
