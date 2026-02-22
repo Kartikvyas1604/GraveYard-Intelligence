@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-void: #030508;
+  --color-carbon: #0A0F14;
+  --color-graphite: #111A22;
+  --color-wire: #1C2A36;
+  --color-acid: #C8FF00;
+  --color-blood: #FF1744;
+  --color-amber: #FFAB00;
+  --color-ice: #00E5FF;
+  --color-bone: #E8DCC8;
+  --color-ghost: #3A4A56;
+
+  --font-display: var(--font-orbitron);
+  --font-data: var(--font-courier-prime);
+  --font-editorial: var(--font-cormorant);
+
+  --animate-fade-up: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-logo-rotate: logoRotate 20s linear infinite;
+  --animate-slide-in-right: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility grid-cols-20 {
+  grid-template-columns: repeat(20, minmax(0, 1fr));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes logoRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px) rotate(-0.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+}
+
+.counter-animate {
+  animation: counter 2s ease-out forwards;
+  counter-reset: num var(--num);
+}
+
+.counter-animate::before {
+  content: counter(num);
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+:root {
+  --void: #030508;
+  --carbon: #0A0F14;
+  --graphite: #111A22;
+  --wire: #1C2A36;
+  --acid: #C8FF00;
+  --blood: #FF1744;
+  --amber: #FFAB00;
+  --ice: #00E5FF;
+  --bone: #E8DCC8;
+  --ghost: #3A4A56;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  background-image: 
+    radial-gradient(circle at top left, rgba(200,255,0,0.06) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, rgba(255,23,68,0.04) 0%, transparent 30%),
+    repeating-linear-gradient(45deg, rgba(200,255,0,0.03) 0px, rgba(200,255,0,0.03) 1px, transparent 1px, transparent 40px);
+  color: var(--bone);
+  font-family: var(--font-data);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(200, 255, 0, 0.03);
+  z-index: 50;
+  pointer-events: none;
+  animation: scanline 6s linear infinite;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-chat-message {
+  opacity: 0;
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glow-ice {
+  box-shadow: 0 0 8px var(--ice);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(200, 255, 0, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--carbon);
+  border-left: 1px solid var(--wire);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ghost);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--acid);
 }

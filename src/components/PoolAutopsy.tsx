@@ -36,7 +36,7 @@ export default function PoolAutopsy({ pool }: { pool: Pool | null }) {
   }
 
   return (
-    <div className="flex-1 flex flex-col bg-carbon border-r border-wire animate-fade-up" style={{ animationDelay: "0.4s" }}>
+    <div key={pool.id} className="flex-1 flex flex-col bg-carbon border-r border-wire animate-slide-in-right">
       <div className="p-6 border-b border-wire">
         <h2 className="font-display text-bone text-lg tracking-[2px] mb-6">💀 POOL AUTOPSY</h2>
         

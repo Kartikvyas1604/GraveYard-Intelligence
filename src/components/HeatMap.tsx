@@ -22,11 +22,11 @@ export default function HeatMap() {
     const cells = [];
     for (let i = 0; i < 120; i++) {
       const intensity = intensities[i] || 0;
-      let colorClass = "bg-void border-wire";
-      if (intensity > 0.9) colorClass = "bg-blood border-blood";
-      else if (intensity > 0.7) colorClass = "bg-amber border-amber";
-      else if (intensity > 0.4) colorClass = "bg-acid border-acid";
-      else if (intensity > 0.2) colorClass = "bg-ice border-ice";
+      let colorClass = "bg-void border-wire text-wire";
+      if (intensity > 0.9) colorClass = "bg-blood border-blood text-blood";
+      else if (intensity > 0.7) colorClass = "bg-amber border-amber text-amber";
+      else if (intensity > 0.4) colorClass = "bg-acid border-acid text-acid";
+      else if (intensity > 0.2) colorClass = "bg-ice border-ice text-ice";
 
       cells.push(
         <div

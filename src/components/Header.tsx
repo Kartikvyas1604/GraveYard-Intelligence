@@ -23,6 +23,9 @@ export default function Header() {
         <Link href="/" className="font-data text-[11px] uppercase tracking-[2px] text-bone hover:text-acid transition-colors">
           Radar
         </Link>
+        <Link href="/pools" className="font-data text-[11px] uppercase tracking-[2px] text-bone hover:text-acid transition-colors">
+          Pools
+        </Link>
         <Link href="/simulate" className="font-data text-[11px] uppercase tracking-[2px] text-bone hover:text-acid transition-colors">
           Simulate
         </Link>

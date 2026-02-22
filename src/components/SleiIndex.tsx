@@ -24,8 +24,11 @@ export default function SleiIndex() {
       <div className="relative h-2 bg-void rounded-full mb-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-acid via-amber to-blood opacity-80"></div>
         <div 
-          className="absolute top-0 bottom-0 w-1 bg-bone shadow-[0_0_8px_#E8DCC8] transition-all duration-1000 ease-out"
-          style={{ left: mounted ? "62.4%" : "0%" }}
+          className="absolute top-0 bottom-0 w-1 bg-bone shadow-[0_0_8px_#E8DCC8] transition-all duration-1000"
+          style={{ 
+            left: mounted ? "62.4%" : "0%",
+            transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)"
+          }}
         ></div>
       </div>
 

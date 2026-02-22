@@ -52,11 +52,16 @@ export default function PoolRadar({ onSelectPool }: { onSelectPool: (pool: Pool)
           <div
             key={pool.id}
             onClick={() => handleSelect(pool)}
-            className={`grid grid-cols-[40px_1fr_100px_80px_80px_60px_40px] gap-2 px-4 py-3 border-b border-wire cursor-pointer transition-all group
-              ${selectedId === pool.id ? 'bg-acid/5 border-l-2 border-l-acid' : 'hover:bg-acid/2 border-l-2 border-l-transparent'}
-              ${pool.status === 'dead' && selectedId !== pool.id ? 'border-l-blood' : ''}
-              ${pool.status === 'dying' && selectedId !== pool.id ? 'border-l-amber' : ''}
-              ${pool.status === 'weak' && selectedId !== pool.id ? 'border-l-ice' : ''}
+            className={`grid grid-cols-[40px_1fr_100px_80px_80px_60px_40px] gap-2 px-4 py-3 border-b border-wire cursor-pointer transition-all duration-150 group
+              border-l-[2px]
+              ${selectedId === pool.id 
+                ? 'bg-acid/5 border-l-[3px] border-l-acid' 
+                : `hover:bg-acid/2 hover:border-l-acid ${
+                    pool.status === 'dead' ? 'border-l-blood' : 
+                    pool.status === 'dying' ? 'border-l-amber' : 
+                    'border-l-ice'
+                  }`
+              }
             `}
           >
             <div className="flex items-center justify-center">

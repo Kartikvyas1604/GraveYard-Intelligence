@@ -32,11 +32,11 @@ export default function HeroStrip() {
                 <span 
                   style={{ 
                     // @ts-expect-error Custom CSS property
-                    "--num": stat.value 
+                    "--num": Math.floor(stat.value) 
                   }} 
-                  className="animate-[counter_2s_ease-out_forwards]"
+                  className="counter-animate"
                 >
-                  {stat.value}
+                  {stat.value % 1 !== 0 ? `.${stat.value.toString().split('.')[1]}` : ''}
                 </span>
               ) : "0"}
               {stat.suffix}
